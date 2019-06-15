@@ -85,24 +85,53 @@ var MAIN = (function() {
 
 })();//MAIN
 
-var FEATURE01 = (function (m) {
-    // Quick import all from MAIN
+
+var NAVIGATION = (function (m) {
     for( g in m ){ this[g] = m[g] }
 
     var
+    $navTrigger = $('#navTrigger'),
+    $mobileNav = $('#mobileNav'),
+    mobile_open = false,
     init = function(){
-        some()
+
+        $navTrigger.click(navTriggerClick);
+		$(window).on('scroll resize', closeMobileNav);
+
     },
-    some = function(){
-        
+    navTriggerClick = function(){
+
+        if(mobile_open){
+            closeMobileNav();
+        }else{
+            openMobileNav();
+        }
+    },
+    openMobileNav = function(event){
+		mobile_open = true;
+
+        $navTrigger.addClass('opened');
+		$mobileNav.slideDown(300)
+		$mobileNav.find('nav, address').slideDown(300)
+
+    },
+    closeMobileNav = function(event){
+		mobile_open = false;
+
+        $navTrigger.removeClass('opened');
+		$mobileNav.slideUp(300)
+		$mobileNav.find('nav, address').slideUp(300)
+
     }
 
     return{
         init: init
     }
 
-})(MAIN)//FEATURE01
+})(MAIN)//NAVIGATION
 
-FEATURE01.init();
+
+//INITIALIZE
+NAVIGATION.init();
 
 })(jQuery)//End of File
