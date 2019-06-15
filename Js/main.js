@@ -42,7 +42,7 @@ var MAIN = (function() {
         scrollPosition = $(document).scrollTop();
         windowHeight = $(window).height();
         windowWidth = $(window).width();
-	is_desktop = ($(window).outerWidth()>768) ? true : false;
+        is_desktop = ($(window).outerWidth()>768) ? true : false;
         $(window).scroll(scroller);
         $(window).resize(resizer);
     },
@@ -89,11 +89,11 @@ var FEATURE01 = (function (m) {
     // Quick import all from MAIN
     for( g in m ){ this[g] = m[g] }
 
-    var    
+    var
     init = function(){
-        setup();       
+        some()
     },
-    setup = function(){
+    some = function(){
         
     }
 
